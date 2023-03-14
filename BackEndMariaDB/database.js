@@ -1,20 +1,45 @@
 const mariadb = require('mariadb');
 
 const pool = mariadb.createPool({
-    host: 'raspberrypi',
-    user: 'luca',
-    password: 'luHmN!Lu!bD2004',
-    database: 'Touren'
+    host: 'localhost',
+    user: 'root', //luca
+    password: 'maHmN!Lu!bD2004', //lucaPasswort
+    database: 'touren'
 });
 
-async function main() {
-    try {
-        let conn = await pool.getConnection();
-        let rows = await conn.query("SELECT * FROM skitouren");
-        console.log(rows);
-    }catch(err) {
-
+async function getSkitouren() {
+    try{
+        let con = await pool.getConnection();
+        let res = await con.query("SELECT * FROM skitouren");
+        return res;
+    }catch (error){
+        console.log(error);
     }
 }
 
-main();
+async function getSkitour(id) {
+    try{
+        let con = await pool.getConnection();
+        let res = await con.query(`SELECT * FROM skitouren WHERE id = ${id}`);
+        return res;
+    }catch (error){
+        console.log(error);
+    }
+}
+
+async function insertSkitour(skitour) {
+    try{
+        let con = await pool.getConnection();
+        let res = await con.query(`INSERT INTO Skitouren VALUES(${skitour.Id},'${skitour.Bergname}',${skitour.Berghoehe},'${skitour.Datum}','${skitour.Personen}','${skitour.Beschreibung}')`);
+        return res;
+    }catch (error){
+        console.log(error);
+    }
+}
+
+
+module.exports = {
+    getSkitouren : getSkitouren,
+    getSkitour : getSkitour,
+    insertSkitour : insertSkitour
+}
