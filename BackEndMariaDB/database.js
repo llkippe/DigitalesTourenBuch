@@ -1,10 +1,10 @@
 const mariadb = require('mariadb');
 
 const pool = mariadb.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'maHmN!Lu!bD2004',
-    database: 'touren'
+    host: 'raspberrypi',
+    user: 'luca',
+    password: 'luHmN!Lu!bD2004',
+    database: 'Touren'
 });
 
 async function main() {
