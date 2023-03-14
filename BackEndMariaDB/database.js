@@ -30,7 +30,7 @@ async function getSkitour(id) {
 async function insertSkitour(skitour) {
     try{
         let con = await pool.getConnection();
-        let res = await con.query(`INSERT INTO Skitouren VALUES(${skitour.Id},'${skitour.Bergname}',${skitour.Berghoehe},'${skitour.Datum}','${skitour.Personen}','${skitour.Beschreibung}')`);
+        let res = await con.query(`INSERT INTO skitouren VALUES(${skitour.Id},'${skitour.Bergname}',${skitour.Berghoehe},'${skitour.Datum}','${skitour.Personen}','${skitour.Beschreibung}')`);
         return res;
     }catch (error){
         console.log(error);
