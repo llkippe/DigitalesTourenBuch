@@ -4,7 +4,8 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
-app.use(cors({origin: 'http://localhost'}))
+app.use(cors({ origin: '*' }));
+
 
 app.get('/', (req,res) => {
     res.status(200).json({title: 'hello world'});
