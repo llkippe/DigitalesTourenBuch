@@ -1,8 +1,16 @@
 const dbFunctions = require('./database');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 app.use(express.json());
+app.use(cors({origin: 'http://localhost'}))
+
+app.get('/', (req,res) => {
+    res.status(200).json({title: 'hello world'});
+});
+
+
 
 app.get('/api/touren/skitouren', (req, res) => {
     dbFunctions.getSkitouren().then((product) => {
