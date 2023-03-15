@@ -7,12 +7,6 @@ app.use(express.json());
 app.use(cors({ origin: '*' }));
 
 
-app.get('/', (req,res) => {
-    res.status(200).json({title: 'hello world'});
-});
-
-
-
 app.get('/api/touren/skitouren', (req, res) => {
     dbFunctions.getSkitouren().then((product) => {
         res.send(product);
@@ -26,6 +20,7 @@ app.get('/api/touren/skitouren/:id', (req, res) => {
 })
 
 app.put('/api/touren/skitouren/', (req, res) => {
+    console.log(req.body);
     dbFunctions.insertSkitour(req.body);
     res.send(req.body);
 })

@@ -11,14 +11,14 @@
         <h1>Moin, was geht</h1>
         <h3>Wahsinn. Was fuer tolle Touren das hier sind. Echt beindruckend... <br> sheesh</h3>
     </section>
-    <section class="skitour">
-        <h2 class="bergname">PIZ TITSCHAL</h2>
-        <h2 ckass="berghoehe">3000m</h2>
-        <h2 class="datum">27.05.2004</h2>
-        <h2 class="personen">Yann, Sami</h2>
-        <h2 class="beschreibung">Das was ganz toll und so waren da auf so nem Berg... aufjedenfall ganz wynderbar mhm</h2>
-    </section>
-
+    <form id="addTour">
+        <input type="text" name="bergname" maxlength="50" placeholder="Mont Blanc" autocomplete="off" required>
+        <input type="text" name="berghoehe" size="4" placeholder="4807m" pattern="[\d]{4}m" autocomplete="off" required>
+        <input type="date" name="datum" min="2004-05-27" required>
+        <input type="text" name="personen" maxlength="150" pattern="^[A-Za-z]+(?:\s*,\s*[A-Za-z]+)*$" placeholder="Otto, Hans" autocomplete="off" required>
+        <input type="text" name="beschreibung" maxlength="600" placeholder="Beschreibung" autocomplete="off" required>
+        <input type="submit" value="+">
+    </form>
     <script src="script.js"></script>
 </body>
 </html>
