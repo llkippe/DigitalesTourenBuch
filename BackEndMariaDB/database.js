@@ -2,8 +2,8 @@ const mariadb = require('mariadb');
 
 const pool = mariadb.createPool({
     host: 'localhost',
-    user: 'luca', //root   ||   luca
-    password: 'lucaPasswort', //maHmN!Lu!bD2004 ||| lucaPasswort
+    user: 'root', //root   ||   luca
+    password: 'maHmN!Lu!bD2004', //maHmN!Lu!bD2004 ||| lucaPasswort
     database: 'touren'
 });
 
@@ -36,9 +36,9 @@ async function insertSkitour(skitour) {
         let con = await pool.getConnection();
         skitour.id = 3;
         skitour.berghoehe = skitour.berghoehe.slice(0,-1);
-        console.log(skitour);
-        let res = await con.query(`INSERT INTO skitouren VALUES(${skitour.id},'${skitour.bergname}',${skitour.berghoehe},'${skitour.datum}','${skitour.personen}','${skitour.beschreibung}')`);
-        console.log("added: " + skitour);
+        console.log(skitour)
+        let res = await con.query(`INSERT INTO skitouren VALUES(${skitour.id},'${skitour.bergname}',${skitour.berghoehe},'${skitour.datum}','${skitour.personen}','${skitour.beschreibung}', '${skitour.imagename}')`);
+        console.log('added skitour');
         con.end();
         return res;
     }catch (error){

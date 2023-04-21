@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Tourenbuch</title>
+    <script src="api.js"></script>
 </head>
 <body>
     <section id="startScreen">
         <h1>Moin, was geht</h1>
         <h3>Wahsinn. Was fuer tolle Touren das hier sind. Echt beindruckend... <br> sheesh</h3>
     </section>
-    <form id="addTour">
+
+    
+    <form action="http://localhost:8090/api/touren/skitouren/" id="uploadForm" method="POST" enctype="multipart/form-data">
         <input type="text" name="bergname" maxlength="50" placeholder="Mont Blanc" autocomplete="off" required>
         <input type="text" name="berghoehe" size="4" placeholder="4807m" pattern="[\d]{4}m" autocomplete="off" required>
         <input type="date" name="datum" min="2004-05-27" required>
         <input type="text" name="personen" maxlength="150" pattern="^[A-Za-z]+(?:\s*,\s*[A-Za-z]+)*$" placeholder="Otto, Hans" autocomplete="off" required>
         <input type="text" name="beschreibung" maxlength="600" placeholder="Beschreibung" autocomplete="off" required>
-        <input type="submit" value="+">
-    </form>
+        <input type="file" name="image" accept="image/*">
+        <button type="submit">Upload</button>
+      </form>
+
+     
+
     <script src="script.js"></script>
+
+   
 </body>
 </html>
