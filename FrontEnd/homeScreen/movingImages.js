@@ -7,8 +7,8 @@
 const wrapper = document.getElementById("wrapper");
 const terrain = document.getElementById("terrain");
 
-const maxXOffsetTerrain = terrain.offsetWidth - window.innerWidth;
-const maxYOffsetTerrain = terrain.offsetHeight - window.innerHeight;
+const maxXOffsetTerrain = (terrain.offsetWidth - window.innerWidth) * 1;
+const maxYOffsetTerrain = (terrain.offsetHeight - window.innerHeight) * 1;
 
 
 
