@@ -7,6 +7,7 @@ let imageSelected = false;
 const wrapper = document.getElementById("wrapper");
 const terrain = document.getElementById("terrain");
 const cursor = document.getElementById('cursor');
+const pageTransition = document.getElementById('pageTransition');
 
 const maxXOffsetTerrain = (terrain.offsetWidth - window.innerWidth) * 1;
 const maxYOffsetTerrain = (terrain.offsetHeight - window.innerHeight) * 1;
@@ -110,13 +111,16 @@ getData(`${url}/skitouren/`).then(res => {
                         fill: 'forwards',
                         easing: 'ease-in-out'
                     });
+
+                    pageTransition.style.transform = 'translate(0,0)';
+
                     localStorage.setItem('skitour', JSON.stringify(res[i]));
                     //const storedSkitour = JSON.parse(localStorage.getItem('skitour'));
 
                     setTimeout(() => {
                         // Navigate to the other page here
-                        window.location.href = 'https://example.com/other-page';
-                      }, 1000);
+                        window.location.href = '/FrontEnd/skitourScreen/index.html';
+                      }, 500);
                 });
                 
             };

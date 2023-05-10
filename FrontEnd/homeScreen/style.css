@@ -30,6 +30,7 @@ body{
 #cursor {
     width: 30px;
     height: 30px;
+    transform: translate(-15px, -15px);
     background-color: #3909C2;
     border-radius: 50%;
     position: absolute;
@@ -242,66 +243,17 @@ a:hover::before {
 }
 
 
-#backgroundTrip {
-    position: absolute;
-    width: 75vw;
+#pageTransition{
+    width: 100vw;
     height: 100vh;
-    right: 0;
-    top: 0;
 
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
     background-color: #F4F2F8;
 
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-#infoWrapper {
-    margin-right: 10vw;
-    width: fit-content;
-    height: 260px;
+    transform: translate(-100%);
 
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+    transition: transform 0.5s ease-in-out;
 }
-#title {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-}
-#title h2{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 64px;
-    line-height: 80%;
-    color: #000000;
-}
-#title h3 {
-    color: #3909C2;
-}
-#info {
-    margin-bottom: 33px;
-}
-#info h3{
-    font-weight: 300;
-    line-height: 150%;
-}
-#buttons {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-#buttons div {
-    background-color: #000000;
-    padding: 5px 20px;
-    border-radius: 8px;
-}
-#buttons div h3{
-    color: white;
-    font-weight: 300;
-    font-size: 16px;
-}
-
-

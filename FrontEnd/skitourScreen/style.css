@@ -1,0 +1,175 @@
+h1, h2, h3, h4  {
+    padding: 0;
+    margin: 0;
+    font-family: 'BrunoAce';
+}
+
+@font-face {
+    font-family: 'BrunoAce';
+    src: url('../BrunoAceRegular.ttf') format('truetype');
+}
+
+
+body{
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+    
+    margin: 0;
+    padding: 0;
+    background-color:#000000;
+
+}
+#terrain {
+    position: fixed;
+    width: 120vw;
+    height: 120vh;
+}
+
+
+#backgroundTrip {
+    position: absolute;
+    width: 75vw;
+    height: 100vh;
+    right: 0;
+    top: 0;
+
+    background-color: #F4F2F8;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+#infoWrapper {
+    margin-right: 10vw;
+    width: fit-content;
+    height: 260px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+#title {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+#title h2{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 80%;
+    color: #000000;
+}
+#title h3 {
+    color: #3909C2;
+}
+#info {
+    margin-bottom: 33px;
+}
+#info h3{
+    font-weight: 300;
+    line-height: 150%;
+}
+#buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#buttons div {
+    background-color: #000000;
+    padding: 5px 20px;
+    border-radius: 8px;
+}
+#buttons div h3{
+    color: white;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+#imgGallary{
+    position: fixed;
+    width: 30vw;
+    height: 30vw;
+    border-radius: 15px;
+    background-color: #bb2c2c;
+
+    left: 10vw;
+    top: calc(100vh/2 - 15vw);
+
+    overflow: hidden;
+}
+
+#imgGallary .img {
+    width: 100%;
+    height: 100%;
+    background-image: url(/FrontEnd/skitourScreen/images/IMG_0719.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px;
+    
+    transform: translate(-100%);
+}
+
+#imgGallary:hover .img {
+    transform: translate(0);
+}
+
+
+
+
+
+nav {
+    position:fixed;
+    width: 100%;
+    max-width: calc(100% - 40px);
+    height: fit-content;
+    margin: 20px;
+    padding: 0;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav a:not(:first-child) {
+    margin-left: 70px;
+}
+nav a h3 {
+    color: #1d1d1d;  
+    font-family: 'BrunoAce';
+    font-style: normal;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    transition: 0.7s ease;
+}
+nav a h3:hover {
+    color: #000000;
+}
+a {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    padding-bottom: 5px;
+  }
+a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color:#921ADF;
+    transition: width 0.3s ease-in-out;
+}
+a:hover::before {
+    width: 100%;
+}
+
