@@ -47,16 +47,6 @@ window.onmousemove = e => {
         fill: "forwards",
         easing: "ease"
     });
-    }else {
-        wrapper.animate({
-            top: '0',
-            left: '0',
-            transform: 'translate(0, 0)'
-          }, {
-            duration: 500,
-            fill: 'forwards',
-            easing: 'ease'
-        });
     }
 
    terrain.animate({
@@ -110,26 +100,44 @@ getData(`${url}/skitouren/`).then(res => {
                 imgDiv.style.left = maxX * Math.random()  + "px";
                 imgDiv.style.top =  maxY * Math.random() + "px";
 
-                imgDiv.addEventListener('mouseover', () => {
-                    cursor.classList.add('hovering');
-                });
-          
-                imgDiv.addEventListener('mouseout', () => {
-                    cursor.classList.remove('hovering');
-                });
-
+                addCursorHovering(imgDiv);
                 imgDiv.addEventListener('mousedown', () => {
-                    if(imageSelected) imgDiv.classList.remove('selected');
-                    else imgDiv.classList.add('selected');
+                    // imageSelected = true;
+                    wrapper.animate({
+                        opacity: 0
+                      }, {
+                        duration: 700,
+                        fill: 'forwards',
+                        easing: 'ease-in-out'
+                    });
+                    localStorage.setItem('skitour', JSON.stringify(res[i]));
+                    //const storedSkitour = JSON.parse(localStorage.getItem('skitour'));
 
-                    imageSelected = !imageSelected;
+                    setTimeout(() => {
+                        // Navigate to the other page here
+                        window.location.href = 'https://example.com/other-page';
+                      }, 1000);
                 });
+                
             };
         });
     }
 });
 
 
+function addCursorHovering(imgDiv) {
+    imgDiv.addEventListener('mouseover', () => {
+        cursor.classList.add('hovering');
+    });
+
+    imgDiv.addEventListener('mouseout', () => {
+        cursor.classList.remove('hovering');
+    });
+}
+
+function addSelectingListener(imgDiv) {
+    
+}
 
 
 
