@@ -38,13 +38,15 @@ body{
     background-color: #F4F2F8;
 
     display: flex;
-    justify-content: end;
+    justify-content: start;
     align-items: center;
 }
+
 #infoWrapper {
-    margin-right: 10vw;
+    margin-left: 35vw;
     width: fit-content;
     height: 260px;
+
 
 
     display: flex;
@@ -112,11 +114,47 @@ body{
     background-size: cover;
     border-radius: 15px;
     
-    transform: translate(-100%);
+    transform: translate(0%);
 }
 
 #imgGallary:hover .img {
     transform: translate(0);
+}
+
+#gallaryScroller {
+    position: fixed;
+    left: 42vw;
+    top: calc(100vh/2 - 15vh);
+    height: 30vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+#gallaryScroller h3 {
+    font-size: 16px;
+    font-weight: 300;
+
+}
+
+#gallaryScroller #baseLine{
+    margin: 5px;
+
+    height: 25vh;
+    width: 5px;
+    border-radius: 10px;
+    background-color: rgb(190, 190, 190);
+}
+
+#gallaryScroller #baseLine #topLine {
+    background-color: #3909C2;
+    border-radius: 10px;
+    width: 100%;
+    height: 25%;
 }
 
 
