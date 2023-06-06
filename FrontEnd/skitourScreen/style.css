@@ -48,7 +48,6 @@ body{
     height: 260px;
 
 
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -99,10 +98,11 @@ body{
     border-radius: 15px;
     background-color: #bb2c2c;
 
+    overflow: hidden;
+
     left: 10vw;
     top: calc(100vh/2 - 15vw);
 
-    overflow: hidden;
 }
 
 #imgGallary .img {
@@ -114,12 +114,19 @@ body{
     background-size: cover;
     border-radius: 15px;
     
-    transform: translate(0%);
+    transform: translateY(-100%);
+    transition: transform 1s ease-in-out;
+
+    position: absolute;
+}
+#imgGallary :first-child{
+    transform: translateY(0%);
 }
 
-#imgGallary:hover .img {
-    transform: translate(0);
-}
+#imgGallary :nth-child(2) {
+    background-image: url(images/IMG_2882.png);
+} 
+
 
 #gallaryScroller {
     position: fixed;
@@ -131,8 +138,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    
 }
 
 #gallaryScroller h3 {
@@ -154,7 +159,29 @@ body{
     background-color: #3909C2;
     border-radius: 10px;
     width: 100%;
-    height: 25%;
+    height: 0%;
+
+    transition: height 1s ease-in-out;
+}
+
+#imgButtons {
+    position: absolute;
+    top: calc(50% - 65px);
+    left: 3%;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#imgButtons #arrowDown{
+    background-image: url(images/ArrowDown.png);
+}
+
+.arrowButton {
+    background-image: url(images/ArrowUp.png);
+    background-size: cover;
+    width: 50px;
+    height: 50px;
 }
 
 

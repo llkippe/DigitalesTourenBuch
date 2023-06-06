@@ -18,7 +18,7 @@ const maxYOffsetTerrain = (terrain.offsetHeight - window.innerHeight) * 1;
 window.onmousemove = e => {
     const mouseX = e.clientX;
     const mouseY = e.clientY;
-
+/*
     cursor.animate({
         left: `${mouseX}px`,
         top: `${mouseY}px`
@@ -27,7 +27,7 @@ window.onmousemove = e => {
         fill: "forwards",
         easing: "ease"
     });
-
+*/
     
 
     const normalizedX = mouseX / window.innerWidth;
@@ -87,8 +87,6 @@ getData(`${url}/skitouren/`).then(res => {
 
             // add bergname and berghoehe
             imgOverlay.innerHTML = `<p>${res[i].bergname}</p><p>${res[i].berghoehe} m</p>`;
-
-            console.log(res[i]);
             
             img.onload = function() {
                 
@@ -100,29 +98,18 @@ getData(`${url}/skitouren/`).then(res => {
 
                 imgDiv.style.left = maxX * Math.random()  + "px";
                 imgDiv.style.top =  maxY * Math.random() + "px";
-
-                addCursorHovering(imgDiv);
-                imgDiv.addEventListener('mousedown', () => {
-                    // imageSelected = true;
-                    wrapper.animate({
-                        opacity: 0
-                      }, {
-                        duration: 700,
-                        fill: 'forwards',
-                        easing: 'ease-in-out'
-                    });
-
-                    pageTransition.style.transform = 'translate(0,0)';
-
-                    localStorage.setItem('skitour', JSON.stringify(res[i]));
-                    //const storedSkitour = JSON.parse(localStorage.getItem('skitour'));
-
-                    setTimeout(() => {
-                        // Navigate to the other page here
-                        window.location.href = '/FrontEnd/skitourScreen/index.html';
-                      }, 500);
-                });
                 
+               addCursorHovering(imgDiv);
+               imgDiv.addEventListener('mousedown', e => {
+                    doPageTransition(res[i]);
+                });
+
+
+              /* imgDiv.addEventListener('mousedown', () => {
+                    
+                // imageSelected = true;
+                
+                });*/
             };
         });
     }
@@ -139,10 +126,24 @@ function addCursorHovering(imgDiv) {
     });
 }
 
-function addSelectingListener(imgDiv) {
-    
-}
+function doPageTransition(skitour) {
+    wrapper.animate({
+        opacity: 0
+      }, {
+        duration: 700,
+        fill: 'forwards',
+        easing: 'ease-in-out'
+    });
 
+    pageTransition.style.transform = 'translate(0,0)';
+
+    localStorage.setItem('skitour', JSON.stringify(skitour));
+
+    setTimeout(() => {
+        // Navigate to the other page here
+        window.location.href = '/FrontEnd/skitourScreen/index.html';
+      }, 500);
+}
 
 
 
